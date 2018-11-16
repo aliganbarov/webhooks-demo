@@ -3,16 +3,25 @@ from django.utils.timesince import timesince
 
 
 class SlackUser(models.Model):
+	"""
+	Class representing Slack User
+	"""
 	user_id 		= models.CharField(max_length=255, unique=True)
 	user_name 		= models.CharField(max_length=255)
 
 
 class Channel(models.Model):
+	"""
+	Class representing Slack Channel
+	"""
 	channel_id 		= models.CharField(max_length=255, unique=True)
 	channel_name 	= models.CharField(max_length=255)
 
 
 class Message(models.Model):
+	"""
+	Class representing Slack Message
+	"""
 	slack_user 		= models.ForeignKey(SlackUser, on_delete=models.CASCADE)
 	channel 		= models.ForeignKey(Channel, on_delete=models.CASCADE)
 	trigger_word 	= models.CharField(max_length=255)
