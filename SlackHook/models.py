@@ -3,12 +3,12 @@ from django.utils.timesince import timesince
 
 
 class SlackUser(models.Model):
-	slack_id 		= models.CharField(max_length=255)
-	slack_name 		= models.CharField(max_length=255)
+	user_id 		= models.CharField(max_length=255, unique=True)
+	user_name 		= models.CharField(max_length=255)
 
 
 class Channel(models.Model):
-	channel_id 		= models.CharField(max_length=255)
+	channel_id 		= models.CharField(max_length=255, unique=True)
 	channel_name 	= models.CharField(max_length=255)
 
 

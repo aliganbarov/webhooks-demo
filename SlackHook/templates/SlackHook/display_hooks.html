@@ -1,5 +1,14 @@
 {% extends 'SlackHook/base.html' %}
 
 {% block content %}
-	
+	{% for channel in channels %}
+		<div class="jumbotron">
+		<h1>{{ channel.channel_name }}</h1>
+		{% for message in channel.messages %}
+			<ul class="list-group">
+				<li class="list-group-item"><b>{{ message.slack_user.user_name }}</b>: {{ message }} <span style="float:right">{{ message.age }}</span></li>
+			</ul>
+		{% endfor %}
+		</div>
+	{% endfor %}
 {% endblock %}
