@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import SlackHook
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('slack_hooks/', include('SlackHook.urls')),
 ]
