@@ -35,7 +35,7 @@ class SlackHookView(TemplateView):
 			token = request.POST['token']
 			channel_id = request.POST['channel_id']
 			channel_name = request.POST['channel_name']
-			timestamp = datetime.datetime.fromtimestamp(float(request.POST['timestamp']) / 1e3)
+			timestamp = datetime.datetime.fromtimestamp(float(request.POST['timestamp']))
 			user_id = request.POST['user_id']
 			user_name = request.POST['user_name']
 			text = request.POST['text']
